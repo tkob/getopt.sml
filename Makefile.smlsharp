@@ -11,7 +11,7 @@ SRCS = \
        getopt-test.sml \
        boot.sml
 
-OBJS = $(SRCS:.sml=.o) $(MKRESOURCE_SRCS:.sml=.o)
+OBJS = $(SRCS:.sml=.o)
 
 all: $(EXEC)
 
@@ -22,7 +22,7 @@ $(EXEC): boot.smi $(EXEC).smi $(OBJS)
 	$(SMLSHARP) $(SMLSHARPFLAGS) -c $<
 
 depend:
-	$(SMLSHARP) -MM $(SRCS) $(MKRESOURCE_SRCS) > $(DEPEND)
+	$(SMLSHARP) -MM $(SRCS) > $(DEPEND)
 
 include $(DEPEND)
 
